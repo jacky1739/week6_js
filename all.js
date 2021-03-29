@@ -1,10 +1,6 @@
 //  https://hexschool-tutorial.herokuapp.com/api/signup
 // https://raw.githubusercontent.com/hexschool/js-training/main/travelAPI-lv1.json
 
-// let obj = {
-//     email: 'lo12315f2e@hexschool.com',
-//     password: '12345678'
-// }
 
 
 const list = document.querySelector(".ticketCard-area");
@@ -34,14 +30,13 @@ function init() {
         console.log(response);
         data = response.data;
         addStr();
+        console.log(data);
     })
         .catch(function (error) {
         console.log(error);
 
     })
 }
-
-init();
 
 
 function addStr(){
@@ -76,7 +71,11 @@ function addStr(){
         </div>
     </li>`;
     })
-
-    innerHTML = str;
+    console.log(str);
+    list.innerHTML = str;
 }
 
+
+
+
+init();
