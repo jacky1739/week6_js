@@ -30,7 +30,7 @@ function init() {
         console.log(response);
         data = response.data;
         addStr();
-        console.log(data);
+        // console.log(data);
     })
         .catch(function (error) {
         console.log(error);
@@ -71,11 +71,25 @@ function addStr(){
         </div>
     </li>`;
     })
-    console.log(str);
     list.innerHTML = str;
 }
 
 
+addBtn.addEventListener("click", addData);
+function addData(){
+    data.push({
+        "id": Date.now(),
+        "name": name.value,
+        "imgUrl": imgUrl.value,
+        "area": area.value,
+        "description": description.value,
+        "group": Number(group.value),
+        "price": Number(price.value),
+        "rate": Number(rate.value),
+    })
+    console.log(data);
+    addStr();
+}
 
 
 init();
