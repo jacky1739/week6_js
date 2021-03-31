@@ -23,7 +23,7 @@ const searchResult = document.querySelector("#searchResult-text");
 
 let data = [];
 
-
+//初始化
 function init() {
     axios.get('https://raw.githubusercontent.com/hexschool/js-training/main/travelAPI-lv1.json')
         .then(function (response) {
@@ -38,7 +38,7 @@ function init() {
     })
 }
 
-
+//用 Axios 將資料撈出來後顯示出來
 function addStr(){
     let str = "";
     data.forEach(function(item){
@@ -74,7 +74,7 @@ function addStr(){
     list.innerHTML = str;
 }
 
-
+//將資料傳到 Data 裡面，增加卡片
 addBtn.addEventListener("click", addData);
 function addData(){
     data.push({
@@ -91,11 +91,14 @@ function addData(){
     addStr();
 }
 
+//地區改變的時候，觸發 Render 涵式
 regionSearch.addEventListener("change", function(){
     // console.log(regionSearch.value);
     render(regionSearch.value);
 })
 
+
+//過濾 Data ，並顯示畫面
 function render(location) {
     let str = "";
     let newData = data.filter(function(item){
@@ -149,5 +152,5 @@ function render(location) {
 
 }
 
-
+//初始化
 init();
